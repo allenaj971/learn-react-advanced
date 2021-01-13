@@ -1,3 +1,7 @@
+# Series I'm following
+
+https://www.youtube.com/watch?v=4UZrsTqkcW4&t=12502s
+
 ## Corresponding Projects
 
 #### useState
@@ -33,4 +37,3 @@
 14. Cart
 
 #### React Router
-# learn-react-advanced
