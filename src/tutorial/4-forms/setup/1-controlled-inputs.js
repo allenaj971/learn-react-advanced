@@ -8,11 +8,26 @@ import React, { useState } from "react";
 const ControlledInputs = () => {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
+  const [people, setPeople] = useState([]);
   // here we are console logging hello world by preventing the default (which reloads
   // the page) when we click submit
   const handleSubmit = (e) => {
+    // prevents default behaviour of reloading when clicking submit
     e.preventDefault();
-    console.log(firstName, email);
+    if (firstName && email) {
+      const person = {
+        id: new Date().getTime().toString(),
+        firstName: firstName,
+        email: email,
+      };
+      setPeople((people) => {
+        return [...people, person];
+      });
+      setFirstName("");
+      setEmail("");
+    } else {
+      console.log("error");
+    }
   };
 
   return (
@@ -45,6 +60,15 @@ const ControlledInputs = () => {
           </div>
           <button type="submit">Add Person</button>
         </form>
+        {people.map((person) => {
+          const { id, firstName, email } = person;
+          return (
+            <div className="item" key={id}>
+              <h4>{firstName}</h4>
+              <h4>{email}</h4>
+            </div>
+          );
+        })}
       </article>
     </>
   );
