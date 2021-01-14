@@ -4,14 +4,14 @@ const url = "https://api.github.com/users";
 
 const UseEffectFetchData = () => {
   const [users, setUsers] = useState([]);
-
+  // setup an async function to get the users from github
   const getUsers = async () => {
     const response = await fetch(url);
     const users = await response.json();
     setUsers(users);
     // console.log(users);
   };
-
+  // gets the users only when the page initially render due to dependency
   useEffect(() => {
     getUsers();
   }, []);
