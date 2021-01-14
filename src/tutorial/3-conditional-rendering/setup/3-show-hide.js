@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 const ShowHide = () => {
+  // here we are displaying another component if it is true.
   const [show, setShow] = useState(false);
   return (
     <>
       <button className="btn" onClick={() => setShow(!show)}>
         show/hide
       </button>
+      {/* if show && component is true it will show the element */}
       {show && <Item />}
     </>
   );
