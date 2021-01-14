@@ -16,7 +16,11 @@ const UseEffectBasics = () => {
     } else {
       return;
     }
-  });
+  }, [value]);
+  // the second, empty list argument passed into useEffect tells it to only render on the initial
+  // render. after it will not, so the document title will not be updated. also called
+  // dependency array. if we pass value, it will run when clicked indefinitely. if we pass
+  // value <4, it will stop updating title after 4 click
 
   console.log("render component");
   return (
